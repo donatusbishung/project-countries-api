@@ -8,7 +8,7 @@ const renderPost = (post) => {
     <div class="card shadow border-0 d-flex flex-column gap-2 __myCard h-100">
       <img src=${post.flags.svg} class="card-img-top" alt="..." />
       <div class="card-body d-flex flex-column gap-3">
-        <h5 class="card-title __countryName">${post.name.common}</h5>
+        <h5 class="card-title __countryName">${post.name}</h5>
         <div class="__details">
           <p class="card-text __countryPopulation">Population: ${post.population}</p>
           <p class="card-text __countryRegion">Region: ${post.region}</p>
@@ -22,7 +22,7 @@ const renderPost = (post) => {
 async function getCountries() {
   let query = searchInput.value;
   console.log(query);
-  const url = await fetch("https://restcountries.com/v3.1/all");
+  const url = await fetch("/data.json");
   const response = await url.json();
   console.log(response);
   response
